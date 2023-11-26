@@ -26,3 +26,13 @@ class Review(BaseModel):
     createdAt: datetime
     updatedAt: datetime
 ```
+
+## Product Model Structure
+
+```python
+class Product(BaseModel):
+    productId: str
+    productName: str
+    productCategory: CategoryProduct
+    productCost: float
+```
