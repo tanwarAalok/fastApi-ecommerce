@@ -2,18 +2,31 @@
 ## User Model Structure
 
 ```python
-class UserRoles(str, Enum):
-    SELLER = 'seller'
-    BUYER = 'buyer'
-
-class User(BaseModel):
+class BaseUser(BaseModel):
     name: str
-    role: UserRoles
     email: EmailStr
     password: str
-    review_ids: List[str] = []
+    role: UserRoles
     createdAt: datetime
     updatedAt: datetime
+
+
+class UserBuyer(BaseUser):
+    review_ids: List[str] = []
+
+
+class UserSeller(BaseUser):
+    product_info: Optional[SellerProductInfo]
+
+
+class User(BaseUser):
+    @property
+    def __actual_class__(self):
+        if self.role == 'seller':
+            return UserSeller
+        elif self.role == 'buyer':
+            return UserBuyer
+        return User
 ```
 
 ## Review Model Structure
@@ -37,6 +50,5 @@ class Product(BaseModel):
     productImg: str
     productDescription: str
     sellerId: List[str]=[]
-    sellerQuantity: int
     avgRating: int
 ```

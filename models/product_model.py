@@ -11,13 +11,11 @@ class CategoryProduct(str, Enum):
     APPLIANCES = 'appliances'
 
 
-
 class Product(BaseModel):
     productName: str
     productCategory: CategoryProduct
     productCost: float
     productImg: str
     productDescription: str
-    sellerId: List[str]=[]
-    sellerQuantity: int
+    sellerId: List[str] = []
     avgRating: int
