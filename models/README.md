@@ -36,6 +36,7 @@ class Product(BaseModel):
     productCost: float
     productImg: str
     productDescription: str
+    sellerId: List[str]=[]
     sellerQuantity: int
     avgRating: int
 ```
