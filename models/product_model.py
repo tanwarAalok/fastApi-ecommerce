@@ -1,13 +1,14 @@
 # product id, product name, product category, product review, product cost
 from pydantic import BaseModel
 from enum import Enum
+from typing import List
 
 
 class CategoryProduct(str, Enum):
     ELECTRONICS = 'electronics'
-    HOME = 'HOME'
-    BEAUTY = 'BEAUTY'
-    APPLIANCES = 'APPLIANCES'
+    HOME = 'home'
+    BEAUTY = 'beauty'
+    APPLIANCES = 'appliances'
 
 
 
@@ -17,5 +18,6 @@ class Product(BaseModel):
     productCost: float
     productImg: str
     productDescription: str
+    sellerId: List[str]=[]
     sellerQuantity: int
     avgRating: int
