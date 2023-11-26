@@ -12,7 +12,10 @@ class CategoryProduct(str, Enum):
 
 
 class Product(BaseModel):
-    productId: str
     productName: str
     productCategory: CategoryProduct
     productCost: float
+    productImg: str
+    productDescription: str
+    sellerQuantity: int
+    avgRating: int
