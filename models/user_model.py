@@ -1,4 +1,7 @@
+from datetime import datetime
 from enum import Enum
+from typing import List
+
 from pydantic import BaseModel, EmailStr
 
 class UserRoles(str, Enum):
@@ -10,4 +13,7 @@ class User(BaseModel):
     role: UserRoles
     email: EmailStr
     password: str
+    review_ids: List[str] = []
+    createdAt: datetime
+    updatedAt: datetime
 
