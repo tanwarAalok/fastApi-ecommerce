@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import Enum
-from typing import List, Optional
+from typing import List
 
 from pydantic import BaseModel, EmailStr
 
@@ -29,7 +29,7 @@ class UserBuyer(BaseUser):
 
 
 class UserSeller(BaseUser):
-    product_info: Optional[SellerProductInfo]
+    products: List[SellerProductInfo] = []
 
 
 class User(BaseUser):

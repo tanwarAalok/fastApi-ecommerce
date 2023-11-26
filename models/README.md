@@ -16,7 +16,7 @@ class UserBuyer(BaseUser):
 
 
 class UserSeller(BaseUser):
-    product_info: Optional[SellerProductInfo]
+    products: List[SellerProductInfo] = []
 
 
 class User(BaseUser):
