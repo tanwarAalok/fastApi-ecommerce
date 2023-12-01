@@ -1,0 +1,7 @@
+fastapi~=0.104.1
+pydantic~=2.5.2
+uvicorn
+
+motor~=3.3.2
+pymongo~=4.6.1
+email_validator
